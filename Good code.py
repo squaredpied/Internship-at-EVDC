@@ -5,6 +5,7 @@ from tkinter import *
 global startinput, stopinput, run, start_time
 
 def exit1 ():
+	GPIO.cleanup()
 	root.destroy()
 	
 def StartAgain():
@@ -26,29 +27,30 @@ def CheckGPIO():
 	if run==1:
 		Label_time.configure(text=str(microsec(start_time)))
 	if GPIO.input(stopinput) == 1 and run == 1:
-		print('Nice')
 		run=0
 		jo = 2
 	root.after(1, CheckGPIO)
 	
 def StartTime(pin):
 	global run, start_time, jo
-	if run == 0 and jo==1:
-		print('I entered')
-		start_time=time.time()
-		run=1
+	if GPIO.input(startinput)==1:
+		if run == 0 and jo==1:
+			start_time=time.time()
+			run=1
 
 def ShowTimer():
 	global run
 	if run==1:
-		Label_time.configure(text=str(microsec(start_time)))
+		Label_time.configure(text=format(microsec(start_time), '.3f'))
 	root.after(1, ShowTimer)
 	
 def StopTime(pin):
 	global run, jo
-	if run == 1:
-		run=0
-		jo=2
+	if GPIO.input(stopinput)==1:
+		if run == 1:
+			run=0
+			Label_time.configure(text=str(microsec(start_time)))
+			jo=2
 
 
 run=0
@@ -64,7 +66,7 @@ root.wm_attributes('-fullscreen','true')
 Label_time=Label(root, text='0.000', font='Arial 250 bold')
 Label_time.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-start_but=Button(root, text='Start', command=StartAgain)
+start_but=Button(root, text='Reset', command=StartAgain)
 start_but.pack()
 
 exit_but=Button(root, text='Exit', command=exit1)
@@ -76,8 +78,8 @@ stopinput=24
 root.after(1, ShowTimer)
 GPIO.setup(startinput, GPIO.IN)
 GPIO.setup(stopinput, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.add_event_detect(startinput, GPIO.BOTH, callback=StartTime)
-GPIO.add_event_detect(stopinput, GPIO.BOTH, callback=StopTime)
+GPIO.add_event_detect(startinput, GPIO.RISING, callback=StartTime)
+GPIO.add_event_detect(stopinput, GPIO.RISING, callback=StopTime)
 #CheckGPIO()
 
 root.mainloop()
