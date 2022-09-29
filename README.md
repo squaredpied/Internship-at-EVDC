@@ -16,3 +16,10 @@ This can be done by dividing the distance by the time (secs). Be careful of the 
 
 Also, for this project, a platform was manufactured to hold the two sound sensors. The SolidWorks part file of this structure can be seen in this repository.
 The aim of this project was to practically demonstrate how the speed of sound can be obtained.
+
+Design of the platform:
+A wooden structure was made and a 1.5l Coca-cola bottle was cut and nailed to the top of the structure. The opening of the bottle will be used to place the sound
+sensor.
+During the experiment, I noticed that there are errors in the time gotten from the program when the sound sensors are placed very far apart i.e. larger than 5m. 
+After trying different solution, it was observed that the sound waves were not concentrating well on the microphone of the sound sensor.
+To solve this problem, there has to be an opening that concentrates the sound waves to the microphone. This is why the 1.5l bottle works well for the project.
