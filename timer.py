@@ -73,7 +73,10 @@ exit_but=Button(root, text='Exit', command=exit1)
 exit_but.pack()
 
 GPIO.setmode(GPIO.BCM)
-startinput=23
+#FIRST SOUND SENSOR PIN
+startinput=23 
+
+#SECOND SOUND SENSOR PIN
 stopinput=24
 root.after(1, ShowTimer)
 GPIO.setup(startinput, GPIO.IN)
