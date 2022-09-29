@@ -8,7 +8,7 @@ The distance between the two sound sensors will then be measured.
 Working principle:
 The python code called timer.py in the repository will be executed. A clap or a loud bang will be made in front of one of the sound sensors. When the clap is made,
 the timer starts. The other sound sensor will stop the timer when the sound reaches it. Please note that the microphone of the two sound sensors should be facing
-each other for the experiment to work.
+each other for the experiment to work. The timer.py uses a tkinker gui for showing the timer.
 
 Since we have the distance between the sound sensors and the time it takes for sound to travel from the first sound sensor to the other one, the speed of sound
 can be calculated.
@@ -23,3 +23,5 @@ sensor.
 During the experiment, I noticed that there are errors in the time gotten from the program when the sound sensors are placed very far apart i.e. larger than 5m. 
 After trying different solution, it was observed that the sound waves were not concentrating well on the microphone of the sound sensor.
 To solve this problem, there has to be an opening that concentrates the sound waves to the microphone. This is why the 1.5l bottle works well for the project.
+
+The video uploaded shows the experiment setup and the timer gui
