@@ -5,7 +5,7 @@ leveled ground and kept in different places.
 
 The distance between the two sound sensors will then be measured.
 
-Working principle:
+##Working principle
 The python code called timer.py in the repository will be executed. A clap or a loud bang will be made in front of one of the sound sensors. When the clap is made,
 the timer starts. The other sound sensor will stop the timer when the sound reaches it. Please note that the microphone of the two sound sensors should be facing
 each other for the experiment to work. The timer.py uses a tkinker gui for showing the timer.
@@ -17,7 +17,7 @@ This can be done by dividing the distance by the time (secs). Be careful of the 
 Also, for this project, a platform was manufactured to hold the two sound sensors. The SolidWorks part file of this structure can be seen in this repository.
 The aim of this project was to practically demonstrate how the speed of sound can be obtained.
 
-Design of the platform:
+##Design of the platform
 A wooden structure was made and a 1.5l Coca-cola bottle was cut and nailed to the top of the structure. The opening of the bottle will be used to place the sound
 sensor.
 During the experiment, I noticed that there are errors in the time gotten from the program when the sound sensors are placed very far apart i.e. larger than 5m. 
